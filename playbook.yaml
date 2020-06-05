@@ -19,9 +19,8 @@
       dest: /tmp/file.zip
       format: zip
 
-###################### Playbook 2 ######################
--name: 
-- name: pplaybook for using vars (assignment2)
+###################### Playbook 2 ###################### 
+- name: playbook for using vars (assignment2)
   hosts: "{{ hosts }}"
   become: yes
   vars_files:
