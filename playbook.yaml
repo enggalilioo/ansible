@@ -1,0 +1,91 @@
+- name: playbook 1
+  hosts: "{{ hosts }}"
+  vars_files:
+  - vars/vars.yaml
+  tasks:
+  - name: Copy using inline content
+    copy:
+      content: 'hello ahmed1'
+      dest: /tmp/hello.txt
+  - name: Copy using inline content
+    copy:
+      content: 'hello ahmed2'
+      dest: /tmp/hi.txt
+  - name: archive files into zip
+    archive:
+      path:
+      - /tmp/hello.txt
+      - /tmp/hi.txt
+      dest: /tmp/file.zip
+      format: zip
+
+###################### Playbook 2 ######################
+-name: 
+- name: pplaybook for using vars (assignment2)
+  hosts: "{{ hosts }}"
+  become: yes
+  vars_files:
+  - vars/vars.yaml
+  # vars:
+  #   webserver: nginx
+  tasks:
+  - name: user has been added
+    user:
+      name: odoo
+      state: present
+  - name: directory is created
+    file:
+      name: /opt/data
+      state: directory
+  - name: copy content to file
+    copy:
+      content: "TopSecrects"
+      dest: /opt/data/secrets.txt
+  - name: install nginx
+    package:
+      name: "{{ webserver }}"
+      state: present
+  - name: server is started
+    service:
+      name: "{{ webserver }}"
+      state: started
+
+###################### Playbook 3 ######################
+- name: playbook for using vars (assignment3)
+  hosts: "{{ hosts }}"
+  vars_files:
+  - vars/vars.yaml
+  - vars/users.yaml
+  become: yes
+  tasks:
+  - name: debug
+    debug:
+      msg: group name is {{ assignment_group }}
+  - name: group exists
+    group:
+      name: "{{ assignment_group }}"
+      state: present
+  - name: user added to group
+    user:
+      name: "{{ assignment_user_name }}"
+      uid: "{{ assignment_user_id }}"
+      group: "{{ assignment_group }}"
+
+###################### Playbook 4 ######################
+- name: playbook for printing magic variables
+  hosts: "{{ hosts }}"
+  vars_files:
+  - vars/vars.yaml
+  tasks:
+  - name: print all magic variables inventory_hostname
+    debug:
+      msg: inventory_hostname is {{ inventory_hostname }}
+  - name: print all magic variables hostvars
+    debug:
+      msg: hostvars is {{ hostvars }}
+  - name: print all magic variables groups
+    debug:
+      msg: groups is {{ groups }}
+  - name: print all magic variables group_names
+    debug:
+      msg: group_names is {{ group_names }}
