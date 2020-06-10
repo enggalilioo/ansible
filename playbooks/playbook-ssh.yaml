@@ -1,0 +1,15 @@
+- name: playbook to install ssh on ubuntu 
+  hosts: qa
+  tasks:
+    - name: user has been added
+      user:
+        name: ansibleuser
+        state: present
+    - name: .ssh directory is created
+      file:
+        name: /home/ansibleuser/.ssh
+        state: directory
+    - name: copy id_rsa pub key to ansibleuser authorized_keys
+      copy:
+        src: ./authorized_keys
+        dest: /home/ansibleuser/.ssh/authorized_keys

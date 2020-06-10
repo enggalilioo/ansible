@@ -3,7 +3,7 @@ Prepare RHEL (dev1) machine
 - docker run --name dev1 -p 2525:22 -v /sys/fs/cgroup:/sys/fs/cgroup:ro --privileged -d abdennour/rhel:8-ssh
 - ssh -i id_rsa ansibleuser@localhost -p 2525 || docker exec -it dev1 bash
 - $ yum install sudo
-- $ assuser ansibleuser
+- $ adduser ansibleuser
 - $ mkdir /home/ansibleuser/.ssh
 - $ vi authorized_keys    => add public key for my user
 - vi /etc/sudoers.d/ansibleuser
@@ -13,9 +13,9 @@ Prepare RHEL (dev1) machine
 
 Prepare ubuntu (dev2) machine
 =============================
-- docker run --name dev2 -p 2524:22 -d enggalilioo/ubuntu:sshd-1.0
+- docker run --rm --name dev2 -p 2524:22 -d enggalilioo/ubuntu:anisble1.0
 - ssh -i id_rsa ansibleuser@localhost -p 2524 || docker exec -it dev2 bash
-- $ service ssh restart
+- $ service ssh restart => in case ssh service was not responding
 - ansible dev2 -m ping
 
 
@@ -33,3 +33,15 @@ Run Ansible Commands
 - ansible-playbook playbook.yaml -vv
 - ansible dev1 -m file -a 'path=/tmp/data state=directory'
 - ansible-inventory --host dev1     => list all host vars
+- ansible-vault encrypt vars/users.yaml => encrypt all content of file using masterkey from key.txt
+- ansible-vault view vars/users.yaml    => the only way to view the content of decrypted file
+- ansible-galaxy install abdennour.bootstrap || ansible-galaxy install -r requirements.yaml     => second way more recommended 
+- 
+
+
+
+
+
+Info
+=====
+my-container ansible_connection=docker  => be used to use docker with ansible
