@@ -1,0 +1,18 @@
+- name: playbook for using when
+  hosts: dev,qa
+  vars_files:
+  - ../vars/users.yaml
+  become: yes
+  tasks:
+  - name: with_list -> loop
+    debug:
+      msg: "{{ item.name }}"
+    loop: "{{ assignment_user }}"
+    notify: add user per role to host
+  handlers:
+  - name: add user per role to host
+    user:
+      name: "{{ item.name }}"
+      state: present
+    loop: "{{ assignment_user }}"
+    when: ( item.role == 'developer' and 'dev' in group_names ) or ( item.role == 'ops' and 'qa' in group_names ) 

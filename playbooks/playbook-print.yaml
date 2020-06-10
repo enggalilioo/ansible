@@ -1,0 +1,17 @@
+- name: playbook for printing magic variables
+  hosts: "{{ hosts }}"
+  vars_files:
+  - ../vars/vars.yaml
+  tasks:
+  - name: print all magic variables inventory_hostname
+    debug:
+      msg: inventory_hostname is {{ inventory_hostname }}
+  - name: print all magic variables hostvars
+    debug:
+      msg: hostvars is {{ hostvars }}
+  - name: print all magic variables groups
+    debug:
+      msg: groups is {{ groups }}
+  - name: print all magic variables group_names
+    debug:
+      msg: group_names is {{ group_names }}

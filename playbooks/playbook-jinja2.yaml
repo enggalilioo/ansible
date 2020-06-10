@@ -1,0 +1,8 @@
+- name: playbook for using jinja
+  hosts: dev,qa
+  become: yes
+  tasks:
+  - name: with_list -> loop
+    template:
+        dest: /tmp/hosts
+        src: templates/hosts.j2

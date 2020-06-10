@@ -1,0 +1,19 @@
+- name: play DRY with loop
+  hosts: dev
+  become: yes
+  tasks:
+  - name: mysql and mongodb are installed
+    package:
+      name: "{{ item }}"
+      state: latest
+    loop:
+    - mysql-server
+    - mongodb-org
+
+  - name: mmysql and mongodb are started
+    service:
+      name: "{{ item }}"
+      state: started
+    loop:
+    - mysql
+    - mongod

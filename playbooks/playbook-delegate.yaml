@@ -1,0 +1,8 @@
+- name: playbook to test delegate_to task
+  hosts: dev
+  tasks:
+  - name: download list of all repos to localhost
+    uri:
+        url: https://api.github.com/users/enggalilioo/repos
+        dest: ~/dev/ansibletest/repo.json
+    delegate_to: localhost

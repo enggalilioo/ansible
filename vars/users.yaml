@@ -1,3 +1,13 @@
-assignment_user_name: ahmed
-assignment_user_id: 4000
-assignment_group: developers
+assignment_user:
+- name: ahmed
+  role: developer
+- name: mohamed
+  role: developer
+- name: hassan
+  role: ops
+
+
+
+# assignment_user_name: ahmed
+# assignment_user_id: 4000
+# assignment_group: developers
