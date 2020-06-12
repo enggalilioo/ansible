@@ -13,7 +13,7 @@ Prepare RHEL (dev1) machine
 
 Prepare ubuntu (dev2) machine
 =============================
-- docker run --rm --name dev2 -p 2524:22 -d enggalilioo/ubuntu:anisble1.0
+- docker run --rm --name dev2 -p 2524:22 -d enggalilioo/ubuntu:ansible1.0
 - ssh -i id_rsa ansibleuser@localhost -p 2524 || docker exec -it dev2 bash
 - $ service ssh restart => in case ssh service was not responding
 - ansible dev2 -m ping

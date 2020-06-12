@@ -1,0 +1,16 @@
+- name: Playbook to install jenkins 
+  hosts: qa
+  become: true
+  tasks:
+    - name: debug user name
+      debug:
+        msg: ansible user is {{ ansible_ssh_user }}
+    - import_role:
+        name: geerlingguy.docker
+      vars:
+        docker_users: 
+          - "{‌{ ansible_ssh_user }}"
+
+  # roles:
+  #   #- role: geerlingguy.pip
+  #   - role: geerlingguy.docker
