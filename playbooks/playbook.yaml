@@ -1,5 +1,5 @@
 - name: playbook 1
-  hosts: "{{ hosts }}"
+  hosts: "{{ target-hosts }}"
   vars_files:
   - vars/vars.yaml
   tasks:
@@ -21,7 +21,7 @@
 
 ###################### Playbook 2 ###################### 
 - name: playbook for using vars (assignment2)
-  hosts: "{{ hosts }}"
+  hosts: "{{ target-hosts }}"
   become: yes
   vars_files:
   - vars/vars.yaml
@@ -51,7 +51,7 @@
 
 ###################### Playbook 3 ######################
 - name: playbook for using vars (assignment3)
-  hosts: "{{ hosts }}"
+  hosts: "{{ target-hosts }}"
   vars_files:
   - vars/vars.yaml
   - vars/users.yaml
@@ -72,7 +72,7 @@
 
 ###################### Playbook 4 ######################
 - name: playbook for printing magic variables
-  hosts: "{{ hosts }}"
+  hosts: "{{ target-hosts }}"
   vars_files:
   - vars/vars.yaml
   tasks:

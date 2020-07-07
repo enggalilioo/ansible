@@ -2,4 +2,4 @@
 ---
 ansible_host: localhost
 ansible_private_key: ~/.ssh/id_rsa
-ansible_ssh_user: ansibleuser
+ansible_ssh_user: vagrant

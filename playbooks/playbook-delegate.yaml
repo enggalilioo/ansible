@@ -1,5 +1,7 @@
 - name: playbook to test delegate_to task
-  hosts: dev
+  hosts: "{{ target-hosts }}"
+  vars_files:
+  - vars/vars.yaml
   tasks:
   - name: download list of all repos to localhost
     uri:

@@ -7,7 +7,7 @@ Prepare RHEL (dev1) machine
 - $ mkdir /home/ansibleuser/.ssh
 - $ vi authorized_keys    => add public key for my user
 - vi /etc/sudoers.d/ansibleuser
-- ansibleuser ALL=(ALL:ALL) NOPASSWD:ALL    => Allow ansibleuser to run as root 
+- ansibleuser ALL=(ALL:ALL) NOPASSWD:ALL    => Allow ansibleuser to run as root without password ask
 - ansible dev1 -m ping
 
 
@@ -35,9 +35,14 @@ Run Ansible Commands
 - ansible-inventory --host dev1     => list all host vars
 - ansible-vault encrypt vars/users.yaml => encrypt all content of file using masterkey from key.txt
 - ansible-vault view vars/users.yaml    => the only way to view the content of decrypted file
-- ansible-galaxy install abdennour.bootstrap || ansible-galaxy install -r requirements.yaml     => second way more recommended 
-- 
+- ansible-galaxy install abdennour.bootstrap || ansible-galaxy install -r requirements.yaml     => second way more recommended
 
+
+Ansible Defaults
+================
+- Ad-hoc command if you not pass any module using -m, so default is command module
+- You can specify user name at the command or add it to ansible.cfg as a common variable
+- 
 
 
 

@@ -1,2 +1,2 @@
 webserver: nginx
-hosts: dev
+target-hosts: vms

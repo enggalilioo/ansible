@@ -1,5 +1,7 @@
 - name: play DRY with loop
-  hosts: dev
+  hosts: "{{ target-hosts }}"
+  vars_files:
+  - vars/vars.yaml
   become: yes
   tasks:
   - name: mysql and mongodb are installed

@@ -1,6 +1,7 @@
 - name: playbook for printing magic variables
-  hosts: "{{ hosts }}"
+  hosts: "{{ target-hosts }}"
   vars_files:
+  - vars/vars.yaml
   - ../vars/vars.yaml
   tasks:
   - name: print all magic variables inventory_hostname

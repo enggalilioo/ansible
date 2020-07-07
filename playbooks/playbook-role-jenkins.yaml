@@ -1,5 +1,7 @@
 - name: Playbook to install jenkins 
-  hosts: dev2
+  hosts: "{{ target-hosts }}"
+  vars_files:
+  - vars/vars.yaml
   become: true
   vars:
     #jenkins_hostname: jenkins.example.com

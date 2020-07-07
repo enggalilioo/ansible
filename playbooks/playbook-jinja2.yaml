@@ -1,5 +1,7 @@
 - name: playbook for using jinja
-  hosts: dev,qa
+  hosts: "{{ target-hosts }}"
+  vars_files:
+  - vars/vars.yaml
   become: yes
   tasks:
   - name: with_list -> loop

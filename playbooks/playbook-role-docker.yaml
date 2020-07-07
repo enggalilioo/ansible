@@ -1,5 +1,7 @@
 - name: Playbook to install jenkins 
-  hosts: qa
+  hosts: "{{ target-hosts }}"
+  vars_files:
+  - vars/vars.yaml
   become: true
   tasks:
     - name: debug user name
