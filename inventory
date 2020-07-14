@@ -1,13 +1,18 @@
-ubuntu-cont1
 # run docker run --rm --name dev2 -p 2525:22 -d enggalilioo/ubuntu:ansible1.0
-centos-vm1
+ubuntu_cont1
+
+
 # run vagrant up on ~/dev/vagrant
+centos_vm1
+ubuntu_vm1
+
 
 [containers]
-ubuntu-cont1
+ubuntu_cont1
 
 [vms]
-centos-vm1
+centos_vm1
+ubuntu_vm1
 
 
 

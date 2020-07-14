@@ -1,7 +1,7 @@
 - name: playbook 1
-  hosts: "{{ target-hosts }}"
+  hosts: "{{ dev }}"
   vars_files:
-  - vars/vars.yaml
+  - ../vars/vars.yaml
   tasks:
   - name: Copy using inline content
     copy:

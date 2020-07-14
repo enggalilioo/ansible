@@ -17,7 +17,7 @@ Prepare ubuntu (dev2) machine
 - ssh -i id_rsa ansibleuser@localhost -p 2524 || docker exec -it dev2 bash
 - $ service ssh restart => in case ssh service was not responding
 - ansible dev2 -m ping
-
+- 
 
 
 Install Ansible on Mac
@@ -36,6 +36,8 @@ Run Ansible Commands
 - ansible-vault encrypt vars/users.yaml => encrypt all content of file using masterkey from key.txt
 - ansible-vault view vars/users.yaml    => the only way to view the content of decrypted file
 - ansible-galaxy install abdennour.bootstrap || ansible-galaxy install -r requirements.yaml     => second way more recommended
+- ansible-playbook playbooks/PLAYBOOK_NAME.yml --limit "host1"   ==> limit target hosts to only host
+- 
 
 
 Ansible Defaults

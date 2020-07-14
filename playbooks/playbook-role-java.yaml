@@ -8,6 +8,8 @@
       debug:
         msg: ansible user is {{ ansible_ssh_user }}
     - import_role:
-        name: geerlingguy.docker
-      vars:
-        docker_users: '{{ ansible_ssh_user }}'
+        name: geerlingguy.java
+
+  # roles:
+  #   #- role: geerlingguy.pip
+  #   - role: geerlingguy.docker
