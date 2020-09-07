@@ -1,0 +1,9 @@
+- name: Playbook to install jenkins 
+  hosts: "{{ dev }}"
+  vars_files:
+  - ../../vars/vars.yaml
+  - ../../vars/mysql.yaml
+  become: true
+  roles:
+    - role: geerlingguy.mysql
+    - role: geerlingguy.gogs

@@ -2,6 +2,8 @@
   hosts: "{{ dev }}"
   vars_files:
   - ../vars/vars.yaml
+  tags:
+  - deployment
   tasks:
   - name: Copy using inline content
     copy:
@@ -21,12 +23,14 @@
 
 ###################### Playbook 2 ###################### 
 - name: playbook for using vars (assignment2)
-  hosts: "{{ target-hosts }}"
+  hosts: "{{ dev }}"
   become: yes
   vars_files:
-  - vars/vars.yaml
+  - ../vars/vars.yaml
   # vars:
   #   webserver: nginx
+  # tags:
+  # - deployment
   tasks:
   - name: user has been added
     user:
@@ -51,10 +55,10 @@
 
 ###################### Playbook 3 ######################
 - name: playbook for using vars (assignment3)
-  hosts: "{{ target-hosts }}"
+  hosts: "{{ dev }}"
   vars_files:
-  - vars/vars.yaml
-  - vars/users.yaml
+  - ../vars/vars.yaml
+  - ../vars/users.yaml
   become: yes
   tasks:
   - name: debug
@@ -72,9 +76,9 @@
 
 ###################### Playbook 4 ######################
 - name: playbook for printing magic variables
-  hosts: "{{ target-hosts }}"
+  hosts: "{{ dev }}"
   vars_files:
-  - vars/vars.yaml
+  - ../vars/vars.yaml
   tasks:
   - name: print all magic variables inventory_hostname
     debug:

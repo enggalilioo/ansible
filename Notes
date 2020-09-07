@@ -30,9 +30,9 @@ Install Ansible on Mac
 
 Run Ansible Commands
 =====================
-- ansible-playbook playbook.yaml -vv
+- ansible-playbook playbook.yaml -vv --tags "deployment"
 - ansible dev1 -m file -a 'path=/tmp/data state=directory'
-- ansible-inventory --host dev1     => list all host vars
+- ansible-inventory --host {{ HOSTNAME }}     => list all host vars
 - ansible-vault encrypt vars/users.yaml => encrypt all content of file using masterkey from key.txt
 - ansible-vault view vars/users.yaml    => the only way to view the content of decrypted file
 - ansible-galaxy install abdennour.bootstrap || ansible-galaxy install -r requirements.yaml     => second way more recommended

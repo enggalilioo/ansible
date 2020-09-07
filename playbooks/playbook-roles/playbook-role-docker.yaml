@@ -1,7 +1,7 @@
 - name: Playbook to install jenkins 
   hosts: "{{ dev }}"
   vars_files:
-  - ../vars/vars.yaml
+  - ../../vars/vars.yaml
   become: true
   tasks:
     - name: debug user name
@@ -10,4 +10,6 @@
     - import_role:
         name: geerlingguy.docker
       vars:
-        docker_users: '{{ ansible_ssh_user }}'
+        docker_users: 
+          - '{{ ansible_ssh_user }}'
+          - jenkins

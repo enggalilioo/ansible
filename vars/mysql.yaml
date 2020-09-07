@@ -1,0 +1,4 @@
+mysql_databases:
+  - name: gogs
+    encoding: latin1
+    collation: latin1_general_ci

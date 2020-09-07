@@ -10,3 +10,12 @@ roles:
 
 - src: geerlingguy.docker
   name: geerlingguy.docker
+
+- src: geerlingguy.git
+  name: geerlingguy.git
+
+- src: geerlingguy.mysql
+  name: geerlingguy.mysql
+
+- src: geerlingguy.gogs
+  name: geerlingguy.gogs
